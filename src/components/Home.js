@@ -24,7 +24,7 @@ export function Home() {
                     seamlessly blending into any aesthetic. Experience the ultimate in comfort and style with our meticulously designed bed.
                     </p>
                 </div>
-                <img class = "home-img" src={bed} alt="Image" />
+                <img class = "home-img" src={bed} alt="bed-img" />
             </div>
 
             <Link to = "/SelectScreen" class="start-button">Start </Link>
