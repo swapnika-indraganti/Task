@@ -1,0 +1,162 @@
+.home-header {
+  background-color: rgb(197, 234, 255);
+  padding: 20px;
+  text-align: center;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  margin: 30px 30px 30px 30px ;
+  height: auto;
+  width: auto;
+}
+
+.description {
+  padding: 10px;
+}
+
+.home-img {
+  padding-top: 20px;
+  max-width: 50%;
+}
+
+.start-button {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: rgb(197, 234, 255);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-decoration: none;
+}
+
+
+.select-container {
+  overflow-x: auto;
+}
+
+.horizontal-scrollable-list {
+  display: flex;
+  border-color: black;
+}
+
+.card {
+  flex: 0 0 auto;
+  margin: 30px;
+  padding: 85px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  border-color: black;
+}
+
+.card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-color: black;
+}
+
+.card-content {
+  margin-top: 10px;
+  text-align: center;
+  border-color: black;
+}
+
+input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+.s-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: auto;
+  width: auto;
+  padding: 20px;
+}
+
+.s-part-list {
+  flex: 0 0 45%;
+  border: 4px solid #98c3cf;
+  padding: 20px;
+}
+
+.assembly-area {
+  flex: 0 0 45%;
+  height: 60vh;
+  width: auto;
+  border: 20px dashed #ccc;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.s-scrollable-panel {
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.s-img {
+  display: block;
+  margin-bottom: 10px;
+  max-width: 100%;
+  cursor: move;
+}
+
+.selected-text {
+  background-color: rgb(216, 248, 195);
+  padding: 10px;
+  margin: 5px;
+}
+
+.selected-header {
+  background-color: rgb(197, 234, 255);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.final-container {
+  text-align: center;
+  padding: 20px;
+  height: 75vh;
+  width: auto;
+  border: 5px solid rgb(197, 234, 255);
+  margin: 50px 50px 50px 50px ;
+  padding: 20px;
+}
+
+.cot-img {
+  position: absolute;
+  object-position: 2.1cm 0.7cm ;
+}
+
+.headboard-img {
+  position: absolute;
+}
+
+.legs-img {
+  position: absolute;
+  object-position: 1.9cm -1.1cm;
+}
+
+.matress-img {
+  object-position: 2.12cm 5.29cm;
+}
+
+.pillow-img {
+  object-position: -0.4cm 4.4cm;
+  position: absolute;
+}
+
+
+
+
