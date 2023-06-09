@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import bed from "./../img1/cot_splash.jpg"
@@ -7,6 +6,7 @@ import './../css/Home.css'
 import { Link } from "react-router-dom";
 
 export function Home() {
+    window.sessionStorage.setItem('selectedItems', JSON.stringify([1, 0, 0, 0, 0])); // This is for select screen purpose, to handle the edge case
     return (
         <div>
             <header className="home-header">
@@ -30,4 +30,4 @@ export function Home() {
             <Link to = "/SelectScreen" class="start-button">Start </Link>
         </div>
     )
-} 
+}

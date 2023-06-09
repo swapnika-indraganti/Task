@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom"
 
@@ -14,42 +14,31 @@ import legslogo from './../img/legs.png'
 import matresslogo from './../img/matress.png'
 import pillowlogo from './../img/pillow.png'
 
+var parts;
+
 export function Assemble() {
 
     var location = useLocation();
     var items = location.state.items;
 
-    const [parts, setParts] = useState([1, 0, 0, 0, 0]);
+    var partsState = window.sessionStorage.getItem('partsState');
+    console.log("parts state ", partsState , " ", parts);
+    if (partsState !== null) {
+        parts = JSON.parse(partsState);
+        console.log("setting the arr ", partsState, parts);
+    }
+
     const [selectedPart, setPartId] = useState();
 
-    useEffect(() => {
-        const handlePopstate = () => {
-            console.log("Triggered use Effect []");
-            var partsState = window.sessionStorage.getItem('partsState');
-            if (partsState) {
-                var partsArray = JSON.parse(partsState);
-                setParts(partsArray);
-            }
-        }
-        window.addEventListener('popstate', handlePopstate);
-    },[]);
-
-    useEffect(() => {
-        console.log("Triggered use effect with [parts] and state is ", parts);
+    function updateParts(id, value) {
+        parts[id] = value;
         window.sessionStorage.setItem('partsState', JSON.stringify(parts));
-    },[parts]);
-
-    function updateState(id, value) {
-        console.log("Calling update state with ", id , " ", value);
-        setParts(previousState => {
-            previousState[id] = value
-            return [...previousState];
-        });
+        setPartId(0); // This is to just re-render the component as the part is dragged to assembly area
     }
 
     function logId (e) {
         e.preventDefault();
-        console.log(selectedPart, " is stored in state ");
+        // console.log(selectedPart, " is stored in state ");
     }
 
     function logState() {
@@ -101,7 +90,7 @@ export function Assemble() {
                     
                     </div>
                 </div>
-                <div class="assembly-area" onDrop={() => updateState(selectedPart, 1)} onDragOver={logId}>
+                <div class="assembly-area" onDrop={() => updateParts(selectedPart, 1)} onDragOver={logId}>
                     <header class = "selected-header">
                         <h2 onClick={logState}>Assembly Area </h2>
                     </header>
