@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom"
 
@@ -21,23 +21,6 @@ export function Assemble() {
 
     const [parts, setParts] = useState([1, 0, 0, 0, 0]);
     const [selectedPart, setPartId] = useState();
-
-    useEffect(() => {
-        const handlePopstate = () => {
-            console.log("Triggered use Effect []");
-            var partsState = window.sessionStorage.getItem('partsState');
-            if (partsState) {
-                var partsArray = JSON.parse(partsState);
-                setParts(partsArray);
-            }
-        }
-        window.addEventListener('popstate', handlePopstate);
-    },[]);
-
-    useEffect(() => {
-        console.log("Triggered use effect with [parts] and state is ", parts);
-        window.sessionStorage.setItem('partsState', JSON.stringify(parts));
-    },[parts]);
 
     function updateState(id, value) {
         console.log("Calling update state with ", id , " ", value);
