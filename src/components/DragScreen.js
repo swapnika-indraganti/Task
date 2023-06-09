@@ -1,36 +1,50 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom"
 
-import cot from "./../img1/cot.jpg"
 import headboard from "./../img1/headboard.jpg"
 import legs from "./../img1/legs.jpg"
 import matress from "./../img1/matress.jpg"
 import pillow from "./../img1/pillow.jpg"
+
+import bodylogo from "./../img/body.png"
+import headboardlogo from './../img/headboard.png'
+import legslogo from './../img/legs.png'
+import matresslogo from './../img/matress.png'
+import pillowlogo from './../img/pillow.png'
 
 export function Assemble() {
 
     var location = useLocation();
     var items = location.state.items;
 
-    console.log("The receied items ", items);
-
-    const [parts, setParts] = useState([0, 0, 0, 0, 0]);
-
-
+    const [parts, setParts] = useState([1, 0, 0, 0, 0]);
     const [selectedPart, setPartId] = useState();
+
+    useEffect(() => {
+        const handlePopstate = () => {
+            console.log("Triggered use Effect []");
+            var partsState = window.sessionStorage.getItem('partsState');
+            if (partsState) {
+                var partsArray = JSON.parse(partsState);
+                setParts(partsArray);
+            }
+        }
+        window.addEventListener('popstate', handlePopstate);
+    },[]);
+
+    useEffect(() => {
+        console.log("Triggered use effect with [parts] and state is ", parts);
+        window.sessionStorage.setItem('partsState', JSON.stringify(parts));
+    },[parts]);
 
     function updateState(id, value) {
         console.log("Calling update state with ", id , " ", value);
-        // switch (id) {
-        //     case "body":
-
-                setParts(previousState => {
-                    previousState[id] = value
-                    return [...previousState];
-                });
-       
+        setParts(previousState => {
+            previousState[id] = value
+            return [...previousState];
+        });
     }
 
     function logId (e) {
@@ -55,13 +69,6 @@ export function Assemble() {
                     <header class = "selected-header">    <h2>Selected Parts </h2>  </header>
 
                     <div class="s-scrollable-panel" id="selected-parts-panel">
-                        
-                        { items[0] === 1 && 
-                        <div draggable = "true" onDragStart={() => setPartId(0)}>
-                            <img class = "s-img" src={cot} alt="body"></img>
-                            <h3 class = "part-text">Cot(body)</h3>
-                        </div>
-                        }
 
                         {items[1] === 1 &&
                         <div draggable = "true" onDragStart={() => setPartId(1)}>
@@ -99,24 +106,20 @@ export function Assemble() {
                         <h2 onClick={logState}>Assembly Area </h2>
                     </header>
                     
-                    { parts[0]=== 1 &&
-                        <h2 class = "selected-text"> Cot is selected </h2>
+                    {parts[4] === 1 &&
+                    <img class = "pillow-img" src = {pillowlogo} alt = "Pillow"></img>
                     }
-
-                    { parts[1] === 1 &&
-                        <h2 class = "selected-text"> HeadBoard is selected </h2>
+                    {parts[1] === 1 &&
+                    <img class = "headboard-img" src = {headboardlogo} alt = "Headboard"></img>
                     }
-
-                    { parts[2] === 1 &&
-                        <h2 class = "selected-text"> Legs are selected </h2>
+                    {parts[0] === 1 &&
+                    <img class = "cot-img" src = {bodylogo} alt = "Cot"></img>
                     }
-
-                    { parts[3] === 1 &&
-                        <h2 class = "selected-text"> Matress is selected </h2>
+                    {parts[2] === 1 &&
+                    <img class = "legs-img" src = {legslogo} alt = "Legs"></img>
                     }
-
-                    { parts[4] === 1 &&
-                        <h2 class = "selected-text"> Pillow is selected </h2>
+                    {parts[3] === 1 &&
+                    <img class = "matress-img" src = {matresslogo} alt = "Matress"></img>
                     }
 
                 </div>

@@ -95,8 +95,6 @@ input[type="checkbox"] {
   border: 20px dashed #ccc;
   margin: auto;
   padding: 20px;
-  text-align: center;
-  overflow-y: auto;
 }
 
 .s-scrollable-panel {
@@ -136,27 +134,24 @@ input[type="checkbox"] {
 
 .cot-img {
   position: absolute;
-  object-position: 2.1cm 0.7cm ;
+  object-position: 3cm -3cm ;
 }
 
 .headboard-img {
   position: absolute;
+  object-position: 0.9cm -3.7cm;
 }
 
 .legs-img {
   position: absolute;
-  object-position: 1.9cm -1.1cm;
+  object-position: 2.8cm -4.8cm;
 }
 
 .matress-img {
-  object-position: 2.12cm 5.29cm;
+  object-position: 3cm 1.79cm;
 }
 
 .pillow-img {
-  object-position: -0.4cm 4.4cm;
+  object-position: 0.6cm 0.9cm;
   position: absolute;
 }
-
-
-
-

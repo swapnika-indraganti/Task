@@ -11,7 +11,7 @@ import pillow from "./../img1/pillow.jpg"
 
 var checkBoxIds = ["body", "head", "legs", "matress", "pillow"];
 
-var checkedBoxes = [0, 0, 0, 0, 0]; // Array representing if the part is selected.  0 - Not selected   , 1 - Selected
+var checkedBoxes = [1, 0, 0, 0, 0]; // Array representing if the part is selected.  0 - Not selected   , 1 - Selected
 
 export function SelectScreen() {
 
@@ -27,7 +27,7 @@ export function SelectScreen() {
                     <img src={bodyLogo} alt="Part 1" />
                     <div class="card-content">
                     <h3>Cot(body)</h3>
-                    <input type="checkbox" id = "body" onChange={() => setCheckedArray(0)}/>
+                    <input type="checkbox" id = "body" checked = "true"/>
                     </div>
                 </div>
                 <div class="card">
